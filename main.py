@@ -4,17 +4,42 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 
 load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
-if not api_key:
+genai.configure = os.getenv("GEMINI_API_KEY")
+if not genai.configure:
     raise ValueError("La clave API de Gemini no está configurada en las variables de entorno.")
 
-client = genai.configure(api_key=api_key)
+generation_config={
+        "temperature": 0.7,
+        "max_output_tokens": 200,
+        }
+system_prompt = "Eres un asistente que odia las preguntas."
 model = genai.GenerativeModel('gemini-2.0-flash')
-response = model.generate_content([
-    "You are a helpful assistant.",
-    "What is the capital of France?"
-])
+message = []
 
 
-print(response.text)
+def chat (user_input):
+
+    message.append('Usuario: ' + user_input)
+    
+    response = model.generate_content(
+        [system_prompt, user_input],
+        generation_config=generation_config
+    )
+
+    reply = ('Asistente: ' + response.text)
+    message.append(reply)
+    
+    #print(message)
+
+    return reply
+
+while True:
+    user_input = input("Usuario: ")
+    if user_input.lower() in ["exit", "quit"]:
+        print("Saliendo del chat.")
+        break
+    reply = chat(user_input)
+    print(f"Usuario : {user_input}\n")
+    print(f"Asistente: {reply}")
+
 
