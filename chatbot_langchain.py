@@ -8,21 +8,25 @@ from langchain_core.messages import SystemMessage
 from typing import Dict
 
 # Cargar variables de entorno
+# Load environment variables
 load_dotenv()
 
 # Obtener API Key
+# Obtain API Key
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY no encontrada en las variables de entorno")
 
 # Inicializar el modelo
+# Initialize the model
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",  # Nota: 'gemini-2.0-flash' no existe, usa 'gemini-1.5-flash'
+    model="gemini-1.5-flash", 
     temperature=0.7,
     google_api_key=api_key
 )
 
 # Almacén de historial por sesión
+# Session history store
 store = {}
 
 def get_session_history(session_id: str):
@@ -36,18 +40,21 @@ class ChatBot:
         self.personalidad = personalidad
 
     def chat(self, user_input: str, idioma: str = "Español", session_id: str = "default") -> str:
-        # 1. Definir el mensaje del sistema según idioma
+        # Definir el mensaje del sistema según idioma
+        # Define the system message based on language
         idioma_prompt = "Responde en español." if idioma == "Español" else "Respond in English."
         system_content = f"{idioma_prompt} Tu personalidad es: {self.personalidad}"
 
-        # 2. Crear el prompt con mensaje del sistema + historial + entrada
+        # Crear el prompt con mensaje del sistema + historial + entrada
+        # Create the prompt with system message + history + input
         prompt = ChatPromptTemplate.from_messages([
             ("system", system_content),
             MessagesPlaceholder(variable_name="history"),
             ("human", "{input}")
         ])
 
-        # 3. Crear la cadena (LCEL)
+        # Crear la cadena (LCEL)
+        # Create the chain (LCEL)
         chain = prompt | llm
 
         # 4. Wrap con historial persistente
