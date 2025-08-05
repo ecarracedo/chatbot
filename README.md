@@ -109,6 +109,26 @@ PERSONALIDADES = {
 - Los archivos `models-chatgpt.py` y `models-gemini.py` son scripts que sirven para listar los modelos que estan accesibles dependiendo del pais donde se ejecuten. Esto es si desean cambiar el modelo y no les funcionas, verificar los modelos con este scripts.
 - Los archivos `main.py` y `chatbot.py` son versiones previas que fueron cambiando hacia la version final de `chatbot_langchain.py`. Los he dejado para que vean la evolucion desde codigo puro a  `LangChain`.
 
+## 🧠 ¿Qué se aprendió con este proyecto?
+
+Durante el desarrollo de este proyecto se adquirieron conocimientos prácticos en diversas tecnologías y conceptos clave para la creación de aplicaciones basadas en IA:
+
+✅ `Streamlit`: Construcción de interfaces web dinámicas e interactivas de forma rápida y eficiente.
+
+✅ `LangChain`: Implementación de cadenas LLM, plantillas de prompt y memoria de chat persistente con `RunnableWithMessageHistory`.
+
+✅ `Google Gemini (Generative AI)`: Integración de un modelo de lenguaje de última generación (Gemini 1.5 Flash) mediante API y variables de entorno.
+
+✅ `Ingeniería de prompts`: Diseño de mensajes que se adaptan dinámicamente al idioma y personalidad seleccionados por el usuario.
+
+✅ `Memoria por sesión`: Mantenimiento del contexto conversacional usando `InMemoryChatMessageHistory`.
+
+✅ `Diseño multilingüe`: Posibilidad de cambiar entre español e inglés y garantizar que la IA responda correctamente.
+
+✅ `Escalabilidad y extensibilidad`: Estructura pensada para facilitar la incorporación de nuevas personalidades o el cambio de proveedor LLM (por ejemplo, de Gemini a ChatGPT).
+
+Además, este proyecto permitió profundizar en la personalización de respuestas de IA y en la simulación de comportamientos tipo personaje, generando asistentes conversacionales más atractivos y versátiles.
+
 ## 📜 Licencia
 
 Este proyecto es de uso libre para fines educativos y de desarrollo.
