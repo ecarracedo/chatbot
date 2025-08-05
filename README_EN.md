@@ -69,6 +69,10 @@ This will open the interface in your default browser, where you can chat with th
 2. Choose a personality.
 3. Type your message and the chatbot will respond in the selected style.
 
+```
+https://chatbot-personality.streamlit.app/
+```
+
 ## 📌 Technical Notes
 
 - Conversation history is stored in memory per session using LangChain’s `RunnableWithMessageHistory`.
