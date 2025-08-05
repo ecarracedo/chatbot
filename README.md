@@ -3,6 +3,12 @@
 
 Este proyecto es una aplicación de chatbot interactivo construida con **Streamlit** y **LangChain**, que utiliza el modelo de Google **Gemini** para generar respuestas en base a la personalidad que el usuario elija para el modelo LLM, haciendo la experiencia más divertida o temática. A su vez tambien puede seleccionar el idioma de respuesta.
 
+## ✨ Tecnologías Principales
+
+- Streamlit
+- LangChain
+- Gemini
+
 ## 🚀 Características
 
 - Idiomas soportados: Español 🇪🇸 y English 🇬🇧
@@ -28,7 +34,7 @@ Este proyecto es una aplicación de chatbot interactivo construida con **Streaml
 - Python 3.13+
 - Instalar las librerias desde `requeriments.txt`
 - Una cuenta en [Google AI Studio](https://aistudio.google.com/app/apikey) para obtener la API Key de Gemini
-- Crear una un archivo .env con la variable de entorno para configurar el API KEY
+- Crear una un archivo .env en la carpeta raiz, con la variable de entorno para configurar el API KEY
 
 ```
 GEMINI_API_KEY='TU API KEY'
@@ -98,8 +104,11 @@ PERSONALIDADES = {
 ## ✨ Archivos Extras
 
 - Los archivos `models-chatgpt.py` y `models-gemini.py` son scripts que sirven para listar los modelos que estan accesibles dependiendo del pais donde se ejecuten. Esto es si desean cambiar el modelo y no les funcionas, verificar los modelos con este scripts.
-- Los archivos `main.py` y `chatbot.py` son archivos previos que fueron cambiando para la version final de `chatbot_langchain.py`. Los he dejado para que vean la como empezo este proyecto.
+- Los archivos `main.py` y `chatbot.py` son versiones previas que fueron cambiando hacia la version final de `chatbot_langchain.py`. Los he dejado para que vean la evolucion desde codigo puro a  `LangChain`.
 
 ## 📜 Licencia
 
 Este proyecto es de uso libre para fines educativos y de desarrollo.
+
+Desarrollado por Emiliano Carracedo | ecarracedo@gmail.com |
+
