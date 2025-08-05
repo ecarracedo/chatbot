@@ -57,7 +57,8 @@ class ChatBot:
         # Create the chain (LCEL)
         chain = prompt | llm
 
-        # 4. Wrap con historial persistente
+        # Wrap con historial persistente
+        # Wrap with persistent history
         chat = RunnableWithMessageHistory(
             chain,
             get_session_history,
@@ -65,11 +66,13 @@ class ChatBot:
             history_messages_key="history",
         )
 
-        # 5. Invocar con ID de sesión (para mantener conversación)
+        # Invocar con ID de sesión (para mantener conversación)
+        # Invoke with session ID (to maintain conversation)
         response = chat.invoke(
             {"input": user_input},
             config={"configurable": {"session_id": session_id}}
         )
 
-        # 6. Devolver solo el contenido de la respuesta
+        # Devolver solo el contenido de la respuesta
+        # Return only the content of the response
         return response.content
