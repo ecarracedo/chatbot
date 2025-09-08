@@ -77,7 +77,7 @@ https://chatbot-personality.streamlit.app/
 ## 📌 Notas Técnicas
 
 - El historial de conversación se guarda en memoria por sesión mediante `RunnableWithMessageHistory` de LangChain.
-- El modelo usado es `gemini-1.5-flash` configurado con `temperatura 0.7` (0 mas deterministico y 1 mas).
+- El modelo usado es `gemini-1.5-flash` configurado con `temperatura 0.7` (0 mas deterministico y 1 mas creativo).
 - Las respuestas son controladas por un mensaje del sistema personalizado que define idioma y personalidad.
 - Este proyecto es adaptable para `ChatGPT` solo hay que adaptar la funcion `chat` de la clase `ChatBot` a la configuracion del modelo segun los parametros de `Langchain`.
 
